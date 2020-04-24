@@ -7,6 +7,7 @@ const KadDHT = require('libp2p-kad-dht')
 const GossipSub = require('libp2p-gossipsub')
 const Multiplex = require('libp2p-mplex')
 const SECIO = require('libp2p-secio')
+const { NOISE } = require('libp2p-noise')
 const ipnsUtils = require('../ipns/routing/utils')
 
 module.exports = () => {
@@ -25,6 +26,7 @@ module.exports = () => {
         Multiplex
       ],
       connEncryption: [
+        NOISE,
         SECIO
       ],
       peerDiscovery: [
